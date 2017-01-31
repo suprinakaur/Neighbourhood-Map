@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>suprina's Neighbourhood map on Uttarakhand</title>
+    <link href="images/favicon.ico" rel="icon">
+    <link href="css/style.css" rel="stylesheet">
+     <link href="css/colms.css" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/jquery-ui.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+</head>
+<body>
+    <div class="box">
+
+        <input type="button" id="show-less-more" data-bind="click: $root.ShowLessMore, value: SomeValue">
+        <div id="side-bar" data-bind="visible: visibleVal" >
+                <h1>Locations of Tourism in<br> UTTARAKHAND </h1>
+            
+                <input id="enter-search" placeholder="Filter Locations" type="search" data-bind="textInput: filter, valueUpdate:'afterKeyDown'">
+            
+                <p id="toggle-heart" data-bind="click: $root.colorChanger, css:{red : colorVal} ">❤</p>
+                <br><br>
+                <p id="info_heart" data-bind="visible: clickHeart"> Recommended! </p>
+                <br><br>
+                <hr>
+                <div class="loc-list">
+                    <ul class="locations" data-bind="foreach: filteredItems">
+                        <li data-bind="text: title, click: $root.liClick"> </li>
+                    </ul>
+                </div>
+
+        </div>
+        <div id="map">
+        </div>
+    </div>
+
+
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/knockout.js"></script>
+    <script src="js/AppViewModel.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQo6vhWd69Kht6Rf4gxNOdJgnz2GcW6ps&v=3&callback=initMap"onerror="googleError()">
+    </script>
+</body>
+</html>
