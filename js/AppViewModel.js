@@ -29,10 +29,10 @@ function initMap()
             markerRef: null,
             venueId: '4dcff31745ddbe15f8adfb44'
         },
-        {   title: 'Kedarnath-temple',
-            location: {lat: 30.734627 , lng:  79.066895 },
+        {   title: 'Dehradun Sunburn Bistro',
+            location: {lat: 30.3165 , lng: 78.0322 },
             markerRef: null,
-            venueId: '4c1b17253b2ab7137f163325'
+            venueId: '5174fc9de4b03b467006491a'
         },
         {   title: 'Jim Corbett National Park',
             location: {lat: 29.4259 , lng: 79.25 },
@@ -54,35 +54,35 @@ function initMap()
             markerRef: null,
             venueId: '4d0dfe2ee0b98cfa9346df93'
         },
-        {   title: 'Ranikhet',
-            location: {lat: 29.6434 , lng: 79.4322 },
+        {   title: 'Jim corbett museum',
+            location: {lat: 29.4259 , lng: 79.25 },
             markerRef: null,
-            venueId: '53590c3f498ef775eb0c1f10'
+            venueId: '4d183d8a302da1cdfc95c193'
         },
         {   title: 'Lansdowne',
             location: {lat: 29.8377 , lng: 78.6871 },
             markerRef: null,
             venueId: '4f7f92efe4b050ced509e8fd'
         },
-        {   title: 'Tehri-Dam',
-            location: {lat: 30.3778 , lng: 78.4806 },
+        {   title: 'Kempty Falls',
+            location: {lat: 30.45 , lng: 78.08 },
             markerRef: null,
-            venueId: '519863d2498e6409a1585775'
+            venueId: '4e8fe25d02d5ee38b690c60c'
         },
-        {   title: 'Dehradun',
-            location: {lat: 30.3165 , lng: 78.0322 },
+        {   title: 'Joshimath',
+            location: {lat: 30.5579 , lng: 79.5593 },
             markerRef: null,
-            venueId: ''
+            venueId: '4c1d988301379521e74447f3'
         },
         {   title: 'Roorkee-nescafe',
             location: {lat: 29.8603 , lng: 77.8933 },
             markerRef: null,
             venueId: '4d9b6025422ea1cd7a2dfb4c'
         },
-        {   title: 'Pauri',
-            location: {lat: 29.8688, lng: 78.8383 },
+        {   title: 'Nainital boating point',
+            location: {lat: 29.393, lng: 79.4541 },
             markerRef: null,
-            venueId: '536f8e83498e22fdbabf96b1'
+            venueId: '4d15a8f6b15cb1f7629fa921'
         }
     ];
 
