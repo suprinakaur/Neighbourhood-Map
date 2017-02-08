@@ -1,48 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>suprina's Neighbourhood map on Uttarakhand</title>
-    <link href="images/favicon.ico" rel="icon">
-    <link href="css/style.css" rel="stylesheet">
-     <link href="css/colms.css" rel="stylesheet">
-    <link href="css/normalize.css" rel="stylesheet">
-    <link href="css/jquery-ui.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-</head>
-<body>
-    <div class="box">
-
-        <input type="button" id="show-less-more" data-bind="click: $root.ShowLessMore, value: SomeValue">
-        <div id="side-bar" data-bind="visible: visibleVal" >
-                <h1>Locations of Tourism in<br> UTTARAKHAND </h1>
-            
-                <input id="enter-search" placeholder="Filter Locations" type="search" data-bind="textInput: filter, valueUpdate:'afterKeyDown'">
-            
-                <p id="toggle-heart" data-bind="click: $root.colorChanger, css:{red : colorVal} ">❤</p>
-                <br><br>
-                <p id="info_heart" data-bind="visible: clickHeart"> Recommended! </p>
-                <br><br>
-                <hr>
-                <div class="loc-list">
-                    <ul class="locations" data-bind="foreach: filteredItems">
-                        <li data-bind="text: title, click: $root.liClick"> </li>
-                    </ul>
-                </div>
-
-        </div>
-        <div id="map">
-        </div>
-    </div>
-
-
-    <script src="js/jquery-3.0.0.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/knockout.js"></script>
-    <script src="js/AppViewModel.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQo6vhWd69Kht6Rf4gxNOdJgnz2GcW6ps&v=3&callback=initMap"onerror="googleError()">
-    </script>
-</body>
+<!DOCTYPE html> 
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>suprina's Neighborhood Map on UTTARAKHAND</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/style.css">
+   </head>
+   <body>
+      <div class="container-fluid">
+         <div class="row">
+            <section class="section-nav col-md-3">
+               <div class="row site-header">
+                  <div class="col-sm-12">
+                     <header class="">
+                        <h1>UTTARAKHAND TOURISM MAP</h1>
+                        <form>
+                           <div class="form-group"> 
+                              <label for="searchbar">Filter places by name</label> 
+                              <input type="text" name="searchbar" id="searchbar" class="form-control" data-bind="value: searchText, valueUpdate: 'afterkeydown', event: {keyup: filterList}" placeholder="Name of place"> 
+                           </div>
+                        </form>
+                     </header>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-sm-12">
+                     <ul data-bind="foreach: mapArray" class="main-nav">
+                        <li class="main-nav-item col-md-12 col-sm-6" data-bind="css: {active: selected},text: title, click: $parent.setSelected, visible:show"></li>
+                     </ul>
+                  </div>
+               </div>
+               <nav> 
+               </nav>
+            </section>
+            <section class="col-md-9 section-content">
+               <div class="row">
+                  <div class="col-sm-12" id="map"></div>
+               </div>
+               <div class="row">
+                  <div class="col-sm-12">
+                     <h4>Uttarakhand, a state in northern India crossed by the Himalayas, is known for its Hindu pilgrimage sites. Rishikesh, a major centre for yoga study, was made famous by the Beatles’ 1968 visit. The city hosts the evening Ganga Aarti, a spiritual gathering on the sacred Ganges River. The state's forested Jim Corbett National Park shelters Bengal tigers and other native wildlife.</h4>
+                  </div>
+               </div>
+            </section>
+         </div>
+      </div>
+      <script>
+         var map, infoWindow;
+         
+         function initMap() {
+             map = new google.maps.Map(
+                 document.getElementById('map'), {
+                     center: {
+                         lat: 30.066753,
+                         lng: 79.01929969999992
+                     },
+                     zoom: 8,
+                     mapTypeControl: false
+                 }
+             );
+             infowindow = new google.maps.InfoWindow();
+         
+             ko.applyBindings(new model());
+         }
+         
+         function googleError() {
+             document.getElementById('map-error').innerHTML = "Error in Map!"
+         }
+      </script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzzzwjsm-nwDgiIT1VqwdKuXtH4rIq4-8&callback=initMap"></script>
+      <script src="js/jquery.min.js"></script>
+      <script src="js/knockout.js"></script>
+      <script src="js/app.js"></script>
+   </body>
 </html>
