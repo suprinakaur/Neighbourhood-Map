@@ -4,7 +4,7 @@ This project is for Udacity Front-end Developer course. Its main purpose is for 
 
 ## Demo
 
-[This Link]
+[This Link](http://suprinakaur.github.io/Neighbourhood-Map)
 
 ## How to install
 
