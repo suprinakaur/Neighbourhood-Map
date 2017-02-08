@@ -1,23 +1,28 @@
+# Udacity Neighborhood Map Project
 
-# Neighborhood Map Project
+This project is for Udacity Front-end Developer course. Its main purpose is for demonstrate MVC architecture and AJAX request.
 
-#### About Project
-* The Purpose of the Project is to Make a Map of a Neighborhood Showing Favorite Places.
-* Teaches Student how to use more than one API with each other.
-* The Map Showcases the tourism locations in Uttarakhand.
-* You can Click on Locations to see their FourSquare Ratings.
+## Demo
 
-#### APIs & Frameworks Used
-* KnockoutJS
-* jQuery
-* Bootstrap
-* Google Maps API
-* FourSquare API
+[This Link]
 
-#### How to Run
-* Download the Project Zip file or Clone the repository.
-* Open `index.html`
-* Click on the List or the Markers on Map to See Likes & Ratings
+## How to install
 
-###### See the Project on: [Neighborhood Map](https://github.com/suprinakaur/Neighbourhood-Map)
+1. Clone or download this repostitory in to your device
+2. Unzip the files
+3. Open index.html
+
+## How to use app
+
+1. Clicked on one of the list in the navigation menu on the left of the screen. Or clicked on any markers.
+2. Filter places by type in the search field with their name.
+
+## Requirements
+
+This app use Google Maps API key and Instagram API access token. I provided mine in the code but just in case you want to change.
+
+## Library Use
+
+- [Twitter Bootstrap](http://getbootstrap.com/)
+- [Knockout JS](http://knockoutjs.com/)
 
