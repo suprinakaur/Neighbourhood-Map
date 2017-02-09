@@ -78,7 +78,7 @@ var model = function()
 
     var self = this;
 
-    self.errorDisplay = ko.observable(" ");
+    self.errorDisplay = ko.observable('');
     self.mapArray = [];
 
     for (var i = 0; i < placesData.length; i++) {
@@ -98,7 +98,13 @@ var model = function()
         self.mapArray.push(place);
     }
 
-
+    // function for animation to make markers bounce but stop after 600ms
+    self.Bounce = function(marker) {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout(function() {
+            marker.setAnimation(null);
+        }, 600);
+    };
 
     // function to add API information to each marker
     self.addApiInfo = function(marker) {
@@ -110,8 +116,8 @@ var model = function()
                 var result = data.response.venue;
 
                 // to add likes and ratings to marker
-                marker.likes = result.hasOwnProperty('likes') ? result.likes.summary : "";
-                marker.rating = result.hasOwnProperty('rating') ? result.rating : "";
+                marker.likes = result.hasOwnProperty('likes') ? result.likes.summary : '';
+                marker.rating = result.hasOwnProperty('rating') ? result.rating : '';
             },
 
             // warn if there is error in recievng json
@@ -193,7 +199,7 @@ var model = function()
         self.currentLocation = location;
 
         Likes = function() {
-            if (self.currentLocation.likes === "" || self.currentLocation.likes === undefined) {
+            if (self.currentLocation.likes === '' || self.currentLocation.likes === undefined) {
                 return "Likes not available for this location";
             } else {
                 return "Location has " + self.currentLocation.likes;
@@ -201,7 +207,7 @@ var model = function()
         };
         // function to show rating and if not then no rating to display
         Rating = function() {
-            if (self.currentLocation.rating === "" || self.currentLocation.rating === undefined) {
+            if (self.currentLocation.rating === '' || self.currentLocation.rating === undefined) {
                 return "Ratings not  available for this location";
             } else {
                 return "Location is rated " + self.currentLocation.rating;
@@ -213,5 +219,6 @@ var model = function()
         infowindow.setContent(InfoWindow);
 
         infowindow.open(map, location);
+        self.Bounce(location);
     };
 };
