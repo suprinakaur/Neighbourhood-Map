@@ -1,90 +1,78 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>suprina's Neighborhood Map on UTTARAKHAND</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <section class="section-nav col-md-3">
-                <div class="row site-header">
-                    <div class="col-sm-12">
-                        <header class="">
-                            <h1>UTTARAKHAND TOURISM MAP</h1>
-                            <form>
-                                <div class="form-group">
-                                    <label for="searchbar">Filter places by name</label>
-                                    <input type="text" name="searchbar" id="searchbar" class="form-control" data-bind="value: searchText, valueUpdate: 'afterkeydown', event: {keyup: filterList}" placeholder="Name of place">
-                                </div>
-                            </form>
-                        </header>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <ul data-bind="foreach: mapArray" class="main-nav">
-                            <li class="main-nav-item col-md-12 col-sm-6" data-bind="css: {active: selected},text: title, click: $parent.setSelected, visible:show"></li>
-                        </ul>
-                    </div>
-                </div>
-                <nav>
-                </nav>
-            </section>
-            <section class="col-md-9 section-content">
-                <div class="row">
-                    <div class="col-sm-12" id="map"></div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h4>Uttarakhand, a state in northern India crossed by the Himalayas, is known for its Hindu pilgrimage sites. Rishikesh, a major centre for yoga study, was made famous by the Beatles’ 1968 visit. The city hosts the evening Ganga Aarti, a spiritual gathering on the sacred Ganges River. The state's forested Jim Corbett National Park shelters Bengal tigers and other native wildlife.</h4>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
-
-    <div id="map"></div>
-    <div id="error">
-        <h4 data-bind="text: errorDisplay"></h4></div>
-
-    </script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/knockout.js"></script>
-    <script src="js/app.js"></script>
-
-    <script>
-        var map, infoWindow;
-
-        function initMap() {
-            map = new google.maps.Map(
-                document.getElementById('map'), {
-                    center: {
-                        lat: 30.066753,
-                        lng: 79.01929969999992
-                    },
-                    zoom: 8,
-                    mapTypeControl: false
-                }
-            );
-            infowindow = new google.maps.InfoWindow();
-
-            ko.applyBindings(new model());
-        }
-
-        function mapError() {
-            document.getElementById('map-error').innerHTML = "Error in Map!";
-        }
-    </script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzzzwjsm-nwDgiIT1VqwdKuXtH4rIq4-8&callback=initMap" onerror="mapError()" async defer></script>
-
-</body>
-
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>suprina's Neighborhood Map on UTTARAKHAND</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/style.css">
+   </head>
+   <body>
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-md-3">
+               <div class="row site-header">
+                  <div class="col-md-12">
+                     <header class="">
+                        <h1>UTTARAKHAND TOURISM MAP</h1>
+                        <form>
+                           <div class="form-group">
+                              <label for="searchbar">Filter places by name</label>
+                              <input type="text" name="searchbar" id="searchbar" class="form-control" data-bind="value: searchText, valueUpdate: 'afterkeydown', event: {keyup: filterList}" placeholder="Name of place">
+                           </div>
+                        </form>
+                     </header>
+                  </div>
+               </div>
+               <div>
+                  <ul data-bind="foreach: mapArray" class="main-nav">
+                     <li class="main-nav-item col-md-12 col-sm-6" data-bind="css: {active: selected},text: title, click: $parent.setSelected, visible:show"></li>
+                  </ul>
+               </div>
+            </div>
+            <div class="col-md-9">
+               <div class="row">
+                  <div class="col-sm-12" id="map"></div>
+                  <div id="map-error">
+                     <h4 data-bind="text: errorDisplay"></h4>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-sm-12">
+                     <h4>Uttarakhand, a state in northern India crossed by the Himalayas, is known for its Hindu pilgrimage sites. Rishikesh, a major centre for yoga study, was made famous by the Beatles’ 1968 visit. The city hosts the evening Ganga Aarti, a spiritual gathering on the sacred Ganges River. The state's forested Jim Corbett National Park shelters Bengal tigers and other native wildlife.</h4>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      </script>
+      <script src="js/jquery.min.js"></script>
+      <script src="js/knockout.js"></script>
+      <script src="js/app.js"></script>
+      <script>
+         var map, infoWindow;
+         
+         function initMap() {
+             map = new google.maps.Map(
+                 document.getElementById('map'), {
+                     center: {
+                         lat: 30.066753,
+                         lng: 79.01929969999992
+                     },
+                     zoom: 8,
+                     mapTypeControl: false
+                 }
+             );
+             infowindow = new google.maps.InfoWindow();
+         
+             ko.applyBindings(new model());
+         }
+         
+         function mapError() {
+             document.getElementById('map-error').innerHTML = "Error in Map!";
+         }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzzzwjsm-nwDgiIT1VqwdKuXtH4rIq4-8&callback=initMap" onerror="mapError()" async defer></script>
+   </body>
 </html>
